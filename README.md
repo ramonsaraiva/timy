@@ -1,9 +1,9 @@
-# Timy
+# timy
 
 Minimalist measurement of python code time
 > You can also use the built-in [timeit](https://docs.python.org/2.7/library/timeit.html) module
 
-## Install
+## Installing
 ```
 pip install timy
 ```
@@ -47,8 +47,8 @@ calculate(5, 10000000)
 ```
 
 ### Tracking **specific points** along your code
-The `with` statement can be used to measure the time of all code inside the block
-Named tracking points can be added with the `track` function
+The `with` statement can also be used to measure code time
+> Named tracking points can be added with the `track` function
 
 ```python
 import timy
@@ -99,4 +99,4 @@ print(factors)
 Contributions are **always** welcome, but keep it simple and small.
 
 ## License
-MIT
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
