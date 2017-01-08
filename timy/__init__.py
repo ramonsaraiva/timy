@@ -1,6 +1,7 @@
 import time
 
 TIMY = 'Timy'
+TRACKING = True
 
 class Timer(object):
 
@@ -13,14 +14,16 @@ class Timer(object):
         return self
 
     def __exit__(self, type, value, traceback):
-        self.show('{:f}'.format(self.elapsed))
+        if TRACKING:
+            self.show('{:f}'.format(self.elapsed))
 
     @property
     def elapsed(self):
         return time.time() - self.start
 
     def track(self, name='track'):
-        self.show('({}) {:f}'.format(name, self.elapsed))
+        if TRACKING:
+            self.show('({}) {:f}'.format(name, self.elapsed))
 
     def show(self, text):
         print('{} {} seconds'.format(self.ident, text))
@@ -28,6 +31,9 @@ class Timer(object):
 
 def timer(ident=TIMY, loops=1):
     def _timer(function, *args, **kwargs):
+        if not TRACKING:
+            return function
+
         def wrapper(*args, **kwargs):
             times = []
             for _ in range(loops):
@@ -40,5 +46,6 @@ def timer(ident=TIMY, loops=1):
                 ident, function.__name__, loops, sum(times)))
             print('{} best time was {:f} seconds'.format(ident, min(times)))
             return result
+
         return wrapper
     return _timer
