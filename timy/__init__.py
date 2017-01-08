@@ -1,11 +1,31 @@
 import time
+import logging
 
-TIMY = 'Timy'
-TRACKING = True
+from settings import (
+    timy_config,
+    TrackingMode
+)
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+
+def output(ident, text):
+    if not timy_config.tracking:
+        return
+
+    message = '{} {} seconds'.format(ident, text)
+
+    if timy_config.tracking_mode == TrackingMode.PRINTING:
+        print(message)
+    elif timy_config.tracking_mode == TrackingMode.LOGGING:
+        logger.info(message)
+
 
 class Timer(object):
 
-    def __init__(self, ident=TIMY):
+    def __init__(self, ident=timy_config.DEFAULT_IDENT):
         self.ident = ident
         self.start = 0
 
@@ -14,24 +34,19 @@ class Timer(object):
         return self
 
     def __exit__(self, type, value, traceback):
-        if TRACKING:
-            self.show('{:f}'.format(self.elapsed))
+        output(self.ident, '{:f}'.format(self.elapsed))
 
     @property
     def elapsed(self):
         return time.time() - self.start
 
     def track(self, name='track'):
-        if TRACKING:
-            self.show('({}) {:f}'.format(name, self.elapsed))
-
-    def show(self, text):
-        print('{} {} seconds'.format(self.ident, text))
+        output(self.ident, '({}) {:f}'.format(name, self.elapsed))
 
 
-def timer(ident=TIMY, loops=1):
+def timer(ident=timy_config.DEFAULT_IDENT, loops=1):
     def _timer(function, *args, **kwargs):
-        if not TRACKING:
+        if not timy_config.tracking:
             return function
 
         def wrapper(*args, **kwargs):
@@ -42,9 +57,10 @@ def timer(ident=TIMY, loops=1):
                 end = time.time()
                 times.append(end - start)
 
-            print('{} executed ({}) for {} time(s) in {:f} seconds'.format(
-                ident, function.__name__, loops, sum(times)))
-            print('{} best time was {:f} seconds'.format(ident, min(times)))
+            _times = 'times' if loops > 1 else 'time'
+            output(ident, 'executed ({}) for {} {} in {:f} seconds'.format(
+                function.__name__, loops, _times, sum(times)))
+            output(ident, 'best time was {:f} seconds'.format(min(times)))
             return result
 
         return wrapper
