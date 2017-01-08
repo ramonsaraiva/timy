@@ -95,15 +95,33 @@ print(factors)
 >> [8462696833, 10086647, 6857, 6857]
 ```
 
-### Enabling and disabling timy
+### Configuring
 
-You can enable and disable timy trackings defining the value of `timy.TRACKING`. The default value is `True`.
+#### Importing timy config
 
 ```python
-import timy
+from timy.settings import timy_config
+```
 
-# Disables timy tracking
-timy.TRACKING = False
+#### Enable or disable timy trackings
+You can enable or disable timy trackings with the `tracking` value.
+> The default value of `tracking` is `True`
+
+```python
+timy_config.tracking = False
+```
+
+#### Changing the way timy outputs information
+You can either use print or logging for all timy outputs, with the `tracking_mode` value.
+> The default value of `tracking_mode` is `TrackingMode.PRINTING`.
+
+```python
+from timy.settings import (
+    timy_config,
+    TrackingMode
+)
+
+timy_config.tracking_mode = TrackingMode.LOGGING
 ```
 
 ## Contribute
