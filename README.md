@@ -95,6 +95,17 @@ print(factors)
 >> [8462696833, 10086647, 6857, 6857]
 ```
 
+### Enabling and disabling timy
+
+You can enable and disable timy trackings defining the value of `timy.TRACKING`. The default value is `True`.
+
+```python
+import timy
+
+# Disables timy tracking
+timy.TRACKING = False
+```
+
 ## Contribute
 Contributions are **always** welcome, but keep it simple and small.
 
