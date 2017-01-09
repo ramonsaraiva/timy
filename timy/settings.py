@@ -6,7 +6,6 @@ TRACKING_MODE = TrackingMode.PRINTING
 
 class TimyConfig(object):
     DEFAULT_IDENT = 'Timy'
-    TRACKING_MODE = TrackingMode()
 
     def __init__(self, tracking=TRACKING, tracking_mode=TRACKING_MODE):
         self.tracking = tracking
