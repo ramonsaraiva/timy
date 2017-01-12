@@ -1,7 +1,7 @@
 import time
 import logging
 
-from settings import (
+from .settings import (
     timy_config,
     TrackingMode
 )
