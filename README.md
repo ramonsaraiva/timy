@@ -1,7 +1,7 @@
 # timy
 
 Minimalist measurement of python code time
-> You can also use the built-in [timeit](https://docs.python.org/2.7/library/timeit.html) module
+> **timy** comes with a different idea of the built-in module [timeit](https://docs.python.org/2.7/library/timeit.html). It adds flexibility and different ways of measuring code time, using simple context managers and function decorators.
 
 ## Installing
 ```
