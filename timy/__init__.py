@@ -25,12 +25,17 @@ def output(ident, text):
 
 class Timer(object):
 
-    def __init__(self, ident=timy_config.DEFAULT_IDENT):
+    def __init__(self, ident=timy_config.DEFAULT_IDENT, include_sleep=True):
         self.ident = ident
         self.start = 0
+        self.end = 0
+        self.include_sleep = include_sleep
 
     def __enter__(self):
-        self.start = time.time()
+        if self.include_sleep:
+            self.start = time.perf_counter()
+        else:
+            self.start = time.process_time()
         return self
 
     def __exit__(self, type, value, traceback):
@@ -38,13 +43,17 @@ class Timer(object):
 
     @property
     def elapsed(self):
-        return time.time() - self.start
+        if self.include_sleep:
+            self.end = time.perf_counter()
+        else:
+            self.end = time.process_time()
+        return self.end - self.start
 
     def track(self, name='track'):
         output(self.ident, '({}) {:f}'.format(name, self.elapsed))
 
 
-def timer(ident=timy_config.DEFAULT_IDENT, loops=1):
+def timer(ident=timy_config.DEFAULT_IDENT, loops=1, include_sleep=True):
     def _timer(function, *args, **kwargs):
         if not timy_config.tracking:
             return function
@@ -52,9 +61,16 @@ def timer(ident=timy_config.DEFAULT_IDENT, loops=1):
         def wrapper(*args, **kwargs):
             times = []
             for _ in range(loops):
-                start = time.time()
+
+                if include_sleep:
+                    start = time.perf_counter()
+                else:
+                    start = time.process_time()
                 result = function(*args, **kwargs)
-                end = time.time()
+                if include_sleep:
+                    end = time.perf_counter()
+                else:
+                    end = time.process_time()
                 times.append(end - start)
 
             _times = 'times' if loops > 1 else 'time'
