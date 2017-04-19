@@ -137,4 +137,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### v 0.3.3 (April 19, 2017)
 
-- Adds an optional argument `include_sleep` to count time elapsed including sleep time (`include_sleep=True`) and excluding sleep time (`include_sleep=False`)
+- Adds an optional argument `include_sleeptime` to count time elapsed including sleep time (`include_sleeptime=True`) and excluding sleep time (`include_sleeptime=False`)
