@@ -1,5 +1,7 @@
 # timy
 
+![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)
+
 Minimalist measurement of python code time
 > **timy** comes with a different idea of the built-in module [timeit](https://docs.python.org/2.7/library/timeit.html). It adds flexibility and different ways of measuring code time, using simple context managers and function decorators.
 
@@ -129,3 +131,10 @@ Contributions are **always** welcome, but keep it simple and small.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+
+## Changelog
+
+### v 0.3.3 (April 19, 2017)
+
+- Adds an optional argument `include_sleep` to count time elapsed including sleep time (`include_sleep=True`) and excluding sleep time (`include_sleep=False`)
