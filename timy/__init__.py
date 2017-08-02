@@ -6,9 +6,8 @@ from .settings import (
     TrackingMode
 )
 
-logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+logger.addHandler(logging.NullHandler())
 
 
 def output(ident, text):

@@ -115,7 +115,8 @@ timy_config.tracking = False
 ```
 
 #### Changing the way timy outputs information
-You can either use print or logging for all timy outputs, with the `tracking_mode` value.
+You can choose between print or logging for all timy outputs by setting the
+value of `tracking_mode`.
 > The default value of `tracking_mode` is `TrackingMode.PRINTING`.
 
 ```python
@@ -125,6 +126,19 @@ from timy.settings import (
 )
 
 timy_config.tracking_mode = TrackingMode.LOGGING
+```
+
+timy logs at the INFO level, which is not printed or stored by default. To
+configure the logging system to print all INFO messages do
+```
+import logging
+logging.basicConfig(level=logging.INFO)
+```
+or to configure the logging system to print only timy's INFO messages do
+```
+import logging
+logging.basicConfig()
+logging.getLogger('timy').level=logging.INFO
 ```
 
 ## Contribute
