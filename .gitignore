@@ -9,3 +9,5 @@ build
 *.egg-info
 _mailinglist
 .cache/
+.tox
+.python-version
