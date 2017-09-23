@@ -3,7 +3,7 @@ branch = True
 source = timy
 
 [html]
-directory = build/coverage.html
+directory = test-reports/coverage.html
 
 [xml]
-output = build/coverage.xml
+output = test-reports/coverage.xml
