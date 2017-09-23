@@ -11,3 +11,4 @@ _mailinglist
 .cache/
 .tox
 .python-version
+.coverage

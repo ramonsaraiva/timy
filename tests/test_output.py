@@ -1,6 +1,6 @@
 import unittest
 
-import timy
+from timy import output
 
 
 def test_output():
