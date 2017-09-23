@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='timy',
-      version='0.3.4',
+      version='0.4.0',
       description='Minimalist measurement of python code time',
       url='https://github.com/ramonsaraiva/timy',
       author='Ramon Saraiva',
