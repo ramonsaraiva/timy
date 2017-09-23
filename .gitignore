@@ -13,3 +13,4 @@ _mailinglist
 .python-version
 .coverage
 *,cover
+test-reports
