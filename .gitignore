@@ -12,3 +12,4 @@ _mailinglist
 .tox
 .python-version
 .coverage
+*,cover

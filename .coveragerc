@@ -1,0 +1,9 @@
+[run]
+branch = True
+source = timy
+
+[html]
+directory = build/coverage.html
+
+[xml]
+output = build/coverage.xml
