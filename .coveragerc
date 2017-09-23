@@ -1,0 +1,9 @@
+[run]
+branch = True
+source = timy
+
+[html]
+directory = test-reports/coverage.html
+
+[xml]
+output = test-reports/coverage.xml
