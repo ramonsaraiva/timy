@@ -1,11 +1,8 @@
 import logging
 
-import mock
+from unittest import mock
 
-try:
-    from StringIO import StringIO
-except ImportError:
-    from io import StringIO
+from io import StringIO
 
 from timy import output
 from timy.settings import (
@@ -40,3 +37,9 @@ def test_output_logger_tracking():
     with mock.patch.object(logger, 'info') as p_info:
         output('ident', 'text')
         p_info.assert_called_with('ident text seconds')
+
+
+def test_output_invalid_tracking():
+    timy_config.tracking = True
+    timy_config.tracking_mode = -1
+    output('ident', 'text')
