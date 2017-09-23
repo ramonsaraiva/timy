@@ -30,7 +30,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            python manage.py test
+            tox
 
       - store_artifacts:
           path: test-reports
