@@ -1,9 +1,7 @@
 from unittest import mock
 
 from timy import timer
-from timy.settings import (
-    timy_config,
-    TrackingMode)
+from timy.settings import timy_config
 
 
 @mock.patch('timy.output')
@@ -43,7 +41,7 @@ def test_timer_include_sleeptime(p_perf_counter, p_output):
 
 @mock.patch('timy.output')
 @mock.patch('time.process_time')
-def test_timer_include_sleeptime(p_process_time, p_output):
+def test_timer_include_sleeptime_no(p_process_time, p_output):
     timy_config.tracking = True
 
     @timer(include_sleeptime=False)
