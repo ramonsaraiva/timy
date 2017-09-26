@@ -1,7 +1,8 @@
 # timy
 
 ![Python 3.3](https://img.shields.io/badge/python-3.3-blue.svg)
-![Python 3.3](https://img.shields.io/badge/python-3.5-blue.svg)
+![Python 3.4](https://img.shields.io/badge/python-3.5-blue.svg)
+![Python 3.5](https://img.shields.io/badge/python-3.5-blue.svg)
 ![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)
 
 ![CircleCI](https://img.shields.io/circleci/project/github/ramonsaraiva/timy/master.svg)
@@ -9,8 +10,6 @@
 
 Minimalist measurement of python code time
 > **timy** comes with a different idea of the built-in module [timeit](https://docs.python.org/2.7/library/timeit.html). It adds flexibility and different ways of measuring code time, using simple context managers and function decorators.
-
-_Currently tested on py35 and py35 but should work on py33+_
 
 ## Installing
 ```
