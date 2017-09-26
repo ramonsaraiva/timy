@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: themattrix/tox
+      - image: n42org/tox
 
     working_directory: ~/repo
 
@@ -17,7 +17,8 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            python3 -m venv venv
+            pip install virtualenv
+            virtualenv -p python3.6 ./venv
             . venv/bin/activate
             pip install -r requirements.txt
 
