@@ -1,7 +1,7 @@
 # timy
 
 ![Python 3.3](https://img.shields.io/badge/python-3.3-blue.svg)
-![Python 3.4](https://img.shields.io/badge/python-3.5-blue.svg)
+![Python 3.4](https://img.shields.io/badge/python-3.4-blue.svg)
 ![Python 3.5](https://img.shields.io/badge/python-3.5-blue.svg)
 ![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)
 
