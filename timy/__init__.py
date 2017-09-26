@@ -24,7 +24,8 @@ def output(ident, text):
 
 class Timer(object):
 
-    def __init__(self, ident=timy_config.DEFAULT_IDENT, include_sleeptime=True):
+    def __init__(self, ident=timy_config.DEFAULT_IDENT,
+                 include_sleeptime=True):
         self.ident = ident
         self.start = 0
         if include_sleeptime:

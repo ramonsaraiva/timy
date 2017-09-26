@@ -24,7 +24,7 @@ def test_cp(p_output):
 
     with mock.patch.object(_timer, 'time_func') as p_time_func:
         p_time_func.return_value = 1
-        with _timer as timer:
+        with _timer as timer: # noqa
             pass
         assert _timer.start == 1
 
