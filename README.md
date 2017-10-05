@@ -83,24 +83,21 @@ def prime_factors(n):
             timer.track('Found a factor')
 
         while i * i <= n:
-            if n % i:
+            if n % i == 0:
+                add_factor(i)
+                n //= i
+            else:
                 i += 1
-                continue
-            n //= i
-            add_factor(n)
-        if n > 1:
-            add_factor(n)
-        return factors
+        return factors + [n]
 
 factors = prime_factors(600851475143)
 print(factors)
 
->> Factors (Found a factor) 0.000023 seconds
->> Factors (Found a factor) 0.000207 seconds
->> Factors (Found a factor) 0.000323 seconds
->> Factors (Found a factor) 0.000340 seconds
->> Factors 0.000349 seconds
->> [8462696833, 10086647, 6857, 6857]
+>> Factors (Found a factor) 0.000017 seconds
+>> Factors (Found a factor) 0.000376 seconds
+>> Factors (Found a factor) 0.001547 seconds
+>> Factors 0.001754 seconds
+>> [71, 839, 1471, 6857]
 ```
 
 ### Configuring
