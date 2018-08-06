@@ -8,7 +8,7 @@ def read(fname):
 
 
 setup(name='timy',
-      version='0.4.1',
+      version='0.4.2',
       description='Minimalist measurement of python code time',
       long_description=read('README.md'),
       long_description_content_type='text/markdown',
