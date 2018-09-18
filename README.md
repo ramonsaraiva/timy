@@ -147,14 +147,3 @@ Contributions are **always** welcome, but keep it simple and small.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
-
-
-## Changelog
-
-### v 0.4.0 (September 23, 2017)
-
-- Drops py2 support and adds 100% coverage with CI integration
-
-### v 0.3.3 (April 19, 2017)
-
-- Adds an optional argument `include_sleeptime` to count time elapsed including sleep time (`include_sleeptime=True`) and excluding sleep time (`include_sleeptime=False`)
